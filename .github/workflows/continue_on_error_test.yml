@@ -10,11 +10,13 @@ jobs:
       - name: "continue step"
         continue-on-error: true
         run: echo "hello world"
-      - name: "test no continue with success"
-        if: success()
+      - name: "test no continue with no condition"
         run: echo "hello world 2"
       - name: "test no continue with success"
-        if: failure()
+        if: success()
         run: echo "hello world 3"
+      - name: "test no continue with failure"
+        if: failure()
+        run: echo "hello world 4"
         
       
