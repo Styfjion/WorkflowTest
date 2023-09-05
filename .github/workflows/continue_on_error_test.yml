@@ -5,18 +5,16 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: "failed step" 
-        run: exit 1
-      - name: "continue step"
+      - name: "failed step"
         continue-on-error: true
+        run: exit 1
+      - name: "continue step without if"
         run: echo "hello world"
-      - name: "test no continue with no condition"
-        run: echo "hello world 2"
       - name: "test no continue with success"
         if: success()
-        run: echo "hello world 3"
+        run: echo "hello world 2"
       - name: "test no continue with failure"
         if: failure()
-        run: echo "hello world 4"
+        run: echo "hello world 3"
         
       
