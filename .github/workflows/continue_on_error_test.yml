@@ -1,0 +1,20 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "failed step" 
+        run: exit 1
+      - name: "continue step"
+        continue-on-error: true
+        run: echo "hello world"
+      - name: "test no continue with success"
+        if: success()
+        run: echo "hello world 2"
+      - name: "test no continue with success"
+        if: failure()
+        run: echo "hello world 3"
+        
+      
